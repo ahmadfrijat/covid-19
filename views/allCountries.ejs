@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          header {
+            background-color: rgb(84, 84, 223);
+            /* height: 200px; */
+            text-align: center;
+            padding: 120px
+        }
+
+        .nav {
+            background-color: rgb(56, 55, 55);
+            padding: 16px;
+        }
+
+        a {
+            color: blanchedalmond;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>COVID STATISTICS</header>
+    <div class="nav">
+        <a href="./">HOME</a>
+        <a href="#">All Countries</a>
+        <a href="./myRecords">My Records</a>
+    </div>
+    <% data.forEach(element=>{%>
+        <div>
+            <h2> <%= element.country%>
+            </h2>
+            <p>total Confirmed : <%= element.totalConfirmed%>
+            </p>
+            <p>total Deaths : <%= element.totalDeaths%>
+            </p>
+            <p>total Recovered : <%= element.totalRecovered%>
+            </p>
+            <p> date : <%= element.date%>
+            </p>
+
+            <form action="/myRecords" method="POST">
+                <input type="text" name="country" value="<%= element.country%>" hidden>
+                <input type="text" name="totalConfirmed" value="<%= element.totalConfirmed%>" hidden>
+                <input type="text" name="totalDeaths" value="<%= element.totalDeaths%>" hidden>
+                <input type="text" name="totalRecovered" value="<%= element.totalRecovered%>" hidden>
+                <input type="text" name="date" value="<%= element.date%>" hidden>
+
+                <input type="submit" value="add-to-my-records">
+            </form>
+        </div>
+
+   <% }) %>
+</body>
+</html>

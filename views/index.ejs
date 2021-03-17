@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pages/css/style.css">
+    <style>
+        header {
+            background-color: rgb(84, 84, 223);
+            /* height: 200px; */
+            text-align: center;
+            padding: 120px
+        }
+
+        .nav {
+            background-color: rgb(56, 55, 55);
+            padding: 16px;
+        }
+        a{
+            color: blanchedalmond;
+            margin: 5px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>COVID STATISTICS</header>
+    <div class="nav">
+        <a href="#">HOME</a>
+        <a href="./allCountries">All Countries</a>
+        <a href="./myRecords">My Records</a>
+    </div>
+    <div>
+        <p>Total Confirmed : <%= data.TotalConfirmed%>
+        </p>
+        <p>Total Deaths : <%= data.TotalDeaths%>
+        </p>
+        <p>Total Recovered : <%= data.TotalRecovered%>
+        </p>
+
+        <form action="/getCountryResult">
+            <input type="text" name="country" placeholder="country ">
+            <input type="date" name="from" placeholder="from">
+            <input type="date" name="to" placeholder="to">
+            <input type="submit" value="submit">
+
+        </form>
+    </div>
+</body>
+
+</html>

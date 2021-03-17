@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            background-color: rgb(84, 84, 223);
+            /* height: 200px; */
+            text-align: center;
+            padding: 120px
+        }
+
+        .nav {
+            background-color: rgb(56, 55, 55);
+            padding: 16px;
+        }
+
+        a {
+            color: blanchedalmond;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>COVID STATISTICS</header>
+    <div class="nav">
+        <a href="./">HOME</a>
+        <a href="./allCountries">All Countries</a>
+        <a href="./myRecords">My Records</a>
+    </div>
+
+    <div>
+        <% data.forEach(element=>{%>
+            <div>
+                <h2>
+                    <%= element.country%>
+                </h2>
+                <!-- <p>total Confirmed : <%= element.totalconfirmed%>
+                </p>
+                <p>total Deaths : <%= element.totaldeaths%>
+                </p>
+                <p>total Recovered : <%= element.totalrecovered%>
+                </p> -->
+                <p> date : <%= element.date%>
+                </p>
+                <form action="/recordDetails/<%= element.id%>">
+                    <input type="submit" value="View-Details">
+                </form>
+            </div>
+
+            <% }) %>
+    </div>
+</body>
+
+</html>
